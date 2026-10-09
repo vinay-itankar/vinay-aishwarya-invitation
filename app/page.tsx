@@ -44,6 +44,7 @@ const events = [
   },
 ];
 
+/* Restore the album images here when the updated photos are ready.
 const gallery = [
   { src: "haldi.webp", alt: "Vinay and Aishwarya celebrating Haldi" },
   { src: "mehendi.webp", alt: "Vinay and Aishwarya celebrating Mehendi" },
@@ -51,6 +52,7 @@ const gallery = [
   { src: "wedding.webp", alt: "Vinay and Aishwarya dressed for their wedding" },
   { src: "reception.webp", alt: "Vinay and Aishwarya dressed for their reception" },
 ];
+*/
 
 function directionsUrl(address: string) {
   return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(address)}`;
@@ -332,8 +334,9 @@ export default function VinayAishwaryaInvitation() {
         <div className={styles.sectionHeading}>
           <p className={styles.eyebrow}>Moments</p>
           <h2 id="gallery-title">Our Photo Album</h2>
-          <p className={styles.galleryCaption}>A few frames from the little celebrations that brought us here.</p>
+          <p className={styles.galleryCaption}>We will update soon...</p>
         </div>
+        {/* Add the album photos back here when they are ready.
         <div className={styles.gallery}>
           {gallery.map((image) => (
             <Image
@@ -347,6 +350,7 @@ export default function VinayAishwaryaInvitation() {
             />
           ))}
         </div>
+        */}
       </section>
 
       <section className={styles.familySection} aria-labelledby="family-title">
