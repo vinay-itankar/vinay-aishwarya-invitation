@@ -2,6 +2,8 @@
 
 The source and images for Vinay and Aishwarya's wedding invitation. The site is exported as a static Next.js app and published with GitHub Pages.
 
+Live invitation: <https://vinay-itankar.github.io/vinay-aishwarya-invitation/>
+
 ## Run locally
 
 ```bash
