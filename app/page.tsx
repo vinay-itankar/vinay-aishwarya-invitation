@@ -58,6 +58,38 @@ function directionsUrl(address: string) {
   return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(address)}`;
 }
 
+const weddingTime = new Date("2026-11-29T10:21:00+05:30").getTime();
+
+function Countdown({ className, unitClassName }: { className: string; unitClassName: string }) {
+  const [now, setNow] = useState<number | null>(null);
+
+  useEffect(() => {
+    const tick = () => setNow(Date.now());
+    tick();
+    const timer = window.setInterval(tick, 1000);
+    return () => window.clearInterval(timer);
+  }, []);
+
+  const totalSeconds = Math.floor(Math.max(0, weddingTime - (now ?? weddingTime)) / 1000);
+  const units = [
+    { label: "Days", value: Math.floor(totalSeconds / 86400) },
+    { label: "Hours", value: Math.floor((totalSeconds % 86400) / 3600) },
+    { label: "Minutes", value: Math.floor((totalSeconds % 3600) / 60) },
+    { label: "Seconds", value: totalSeconds % 60 },
+  ];
+
+  return (
+    <div className={className} role="timer" aria-label="Countdown to the wedding">
+      {units.map((unit) => (
+        <div className={unitClassName} key={unit.label}>
+          <strong>{now === null ? "--" : String(unit.value).padStart(2, "0")}</strong>
+          <span>{unit.label}</span>
+        </div>
+      ))}
+    </div>
+  );
+}
+
 export default function VinayAishwaryaInvitation() {
   const [opened, setOpened] = useState(false);
   const [isOpening, setIsOpening] = useState(false);
@@ -95,6 +127,33 @@ export default function VinayAishwaryaInvitation() {
 
     return () => observer.disconnect();
   }, [opened]);
+
+  useEffect(() => {
+    const audio = musicRef.current;
+    if (!audio) return;
+    let resumeOnReturn = false;
+
+    const pauseForBackground = () => {
+      if (audio.paused) return;
+      resumeOnReturn = true;
+      audio.pause();
+    };
+    const onVisibilityChange = () => {
+      if (document.hidden) {
+        pauseForBackground();
+      } else if (resumeOnReturn) {
+        resumeOnReturn = false;
+        audio.play().catch(() => undefined);
+      }
+    };
+
+    document.addEventListener("visibilitychange", onVisibilityChange);
+    window.addEventListener("pagehide", pauseForBackground);
+    return () => {
+      document.removeEventListener("visibilitychange", onVisibilityChange);
+      window.removeEventListener("pagehide", pauseForBackground);
+    };
+  }, []);
 
   function openInvitation() {
     if (isOpening) return;
@@ -367,6 +426,8 @@ export default function VinayAishwaryaInvitation() {
         <p className={styles.eyebrow}>We can’t wait to celebrate with you</p>
         <h2>Vinay<br /><span>&amp;</span><br />Aishwarya</h2>
         <p className={styles.hashtag}>#AishVinni</p>
+        <p className={styles.countdownLabel}>Counting down to our big day</p>
+        <Countdown className={styles.countdown} unitClassName={styles.countdownUnit} />
         <a className={styles.backToTop} href="#invitation-title">Back to top ↑</a>
       </footer>
       </main>

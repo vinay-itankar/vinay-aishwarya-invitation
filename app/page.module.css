@@ -869,6 +869,49 @@
   margin-top: 8px;
 }
 
+.countdownLabel {
+  margin: 34px 0 14px;
+  color: #79635c;
+  font-family: var(--font-invitation-serif), Georgia, serif;
+  font-size: 1.1rem;
+}
+
+.countdown {
+  display: grid;
+  width: min(100%, 360px);
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 8px;
+  margin: 0 auto;
+}
+
+.countdownUnit {
+  padding: 14px 4px 10px;
+  border: 1px solid rgb(190 159 115 / 45%);
+  border-radius: 16px;
+  background: rgb(255 254 249 / 85%);
+  box-shadow: 0 8px 22px rgb(82 52 38 / 8%);
+}
+
+.countdownUnit strong {
+  display: block;
+  color: #693f43;
+  font-family: var(--font-geist-sans), system-ui, sans-serif;
+  font-size: 1.6rem;
+  font-variant-numeric: lining-nums tabular-nums;
+  font-weight: 600;
+  line-height: 1.1;
+}
+
+.countdownUnit span {
+  display: block;
+  margin-top: 4px;
+  color: #9a7b3f;
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
 .backToTop {
   display: table;
   margin: 44px auto 0;
