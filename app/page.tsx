@@ -237,7 +237,7 @@ export default function VinayAishwaryaInvitation() {
           <p className={styles.heroSubline}>Together with our families</p>
           <p className={styles.heroDate}>
             <span>29th November 2026</span>
-            <span className={styles.heroTime}>10:21 AM</span>
+            <span className={styles.heroTime}>10:21 AM onwards</span>
           </p>
           <p className={styles.hashtag}>#AishVinni</p>
           <a className={styles.scrollLink} href="#celebrations">Scroll to explore <span aria-hidden="true">↓</span></a>
