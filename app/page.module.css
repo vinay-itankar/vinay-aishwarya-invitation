@@ -1,13 +1,14 @@
 .cover {
   position: relative;
   display: grid;
-  width: min(100%, 760px);
+  width: min(100%, 430px);
   min-height: 100svh;
   place-items: center;
   overflow: hidden;
   margin: 0 auto;
   border-inline: 1px solid rgb(184 132 116 / 18%);
   background: #f8e8df;
+  box-shadow: 0 0 48px rgb(91 64 53 / 13%);
   color: #542a2e;
   text-align: center;
 }
@@ -65,7 +66,7 @@
 .coverNames {
   margin: 12px 0 4px;
   font-family: var(--font-invitation-script), cursive;
-  font-size: clamp(3.35rem, 11vw, 6rem);
+  font-size: clamp(3rem, 11vw, 4rem);
   font-weight: 400;
   letter-spacing: 0;
   line-height: 1.05;
@@ -211,14 +212,14 @@
 
 .invitation {
   position: relative;
-  width: min(100%, 760px);
+  width: min(100%, 430px);
   margin: 0 auto;
   border-inline: 1px solid rgb(211 167 153 / 28%);
   overflow: clip;
   background: #fffaf4;
   color: #563b3d;
   font-family: var(--font-invitation-serif), Georgia, serif;
-  box-shadow: 0 0 60px rgb(107 69 62 / 8%);
+  box-shadow: 0 0 48px rgb(91 64 53 / 13%);
   animation: reveal 800ms ease both;
 }
 
@@ -292,7 +293,7 @@
   margin: 24px 0 17px;
   color: #a38338;
   font-family: var(--font-invitation-script), cursive;
-  font-size: clamp(3.7rem, 12vw, 6rem);
+  font-size: clamp(3.2rem, 12vw, 4rem);
   font-weight: 400;
   letter-spacing: 0;
   line-height: 0.98;
@@ -881,7 +882,7 @@
 .musicControl {
   position: fixed;
   z-index: 20;
-  right: max(18px, env(safe-area-inset-right));
+  right: max(18px, calc((100vw - 430px) / 2 + 18px), env(safe-area-inset-right));
   bottom: max(18px, env(safe-area-inset-bottom));
 }
 
