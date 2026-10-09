@@ -333,8 +333,12 @@
   text-transform: uppercase;
 }
 
-.heroDate span {
-  padding: 0 8px;
+.heroDate > span {
+  display: block;
+}
+
+.heroDate .heroTime {
+  margin-top: 8px;
   color: #ba9650;
 }
 

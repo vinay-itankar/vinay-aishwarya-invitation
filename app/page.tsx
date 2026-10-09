@@ -235,7 +235,10 @@ export default function VinayAishwaryaInvitation() {
             <span>Aishwarya Likhitkar</span>
           </h1>
           <p className={styles.heroSubline}>Together with our families</p>
-          <p className={styles.heroDate}>29th November 2026 <span>·</span> 10:21 AM</p>
+          <p className={styles.heroDate}>
+            <span>29th November 2026</span>
+            <span className={styles.heroTime}>10:21 AM</span>
+          </p>
           <p className={styles.hashtag}>#AishVinni</p>
           <a className={styles.scrollLink} href="#celebrations">Scroll to explore <span aria-hidden="true">↓</span></a>
         </div>
