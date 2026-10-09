@@ -924,7 +924,14 @@
   }
 
   .coverCouple {
-    width: min(82vw, 310px);
+    width: auto;
+    height: min(39svh, 340px);
+    max-width: 100%;
+  }
+
+  .coverScene {
+    height: min(39svh, 340px);
+    margin-bottom: 28px;
   }
 
   .hero {
@@ -989,11 +996,13 @@
   .coverScene {
     width: min(72vw, 280px);
     height: min(32svh, 220px);
-    margin: 0 0 8px;
+    margin: 0 0 18px;
   }
 
   .coverCouple {
-    width: 100%;
+    width: auto;
+    height: min(32svh, 220px);
+    max-width: 100%;
   }
 }
 
