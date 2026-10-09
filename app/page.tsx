@@ -270,7 +270,7 @@ export default function VinayAishwaryaInvitation() {
         </div>
         <div className={styles.coupleGrid}>
           <article className={styles.personCard}>
-            <Image className={styles.personImage} src={assetUrl("/vinay-aishwarya/groom-vinay.webp")} alt="Vinay Itankar, the groom" width={1024} height={1024} sizes="(max-width: 700px) 58vw, 280px" />
+            <Image className={styles.personImage} src={assetUrl("/vinay-aishwarya/groom-real.jpeg")} alt="Vinay Itankar, the groom" width={900} height={1600} sizes="(max-width: 700px) 58vw, 280px" />
             <p className={styles.role}>The Groom</p>
             <h3>Vinay Itankar</h3>
             <div className={styles.personDivider} aria-hidden="true"><span>♥</span></div>
@@ -278,7 +278,7 @@ export default function VinayAishwaryaInvitation() {
           </article>
           <div className={styles.coupleFlourish} aria-hidden="true"><span>♡</span></div>
           <article className={styles.personCard}>
-            <Image className={styles.personImage} src={assetUrl("/vinay-aishwarya/bride.webp")} alt="Aishwarya Likhitkar, the bride" width={1122} height={1402} sizes="(max-width: 700px) 58vw, 280px" />
+            <Image className={styles.personImage} src={assetUrl("/vinay-aishwarya/bride-real.jpeg")} alt="Aishwarya Likhitkar, the bride" width={900} height={1600} sizes="(max-width: 700px) 58vw, 280px" />
             <p className={styles.role}>The Bride</p>
             <h3>Aishwarya Likhitkar</h3>
             <div className={styles.personDivider} aria-hidden="true"><span>♥</span></div>
