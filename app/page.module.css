@@ -898,6 +898,29 @@
   outline-offset: 4px;
 }
 
+.musicBars {
+  display: flex;
+  height: 22px;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+}
+
+.musicBars > span {
+  width: 3px;
+  height: 15px;
+  border-radius: 3px;
+  background: currentColor;
+  animation: musicBarBounce 760ms ease-in-out infinite alternate;
+}
+
+.musicBars > .musicBarOne { animation-delay: -510ms; }
+.musicBars > .musicBarTwo { animation-delay: -180ms; }
+.musicBars > .musicBarThree { animation-delay: -650ms; }
+.musicBars > .musicBarFour { animation-delay: -320ms; }
+.musicBars > .musicBarFive { animation-delay: -80ms; }
+.musicBars > .musicBarSix { animation-delay: -430ms; }
+
 .musicStatus {
   position: absolute;
   right: 0;
@@ -969,6 +992,11 @@
   0% { opacity: 0; transform: translate3d(0, 18px, 0); filter: blur(3px); }
   65% { opacity: 1; filter: blur(0); }
   100% { opacity: 1; transform: translate3d(0, 0, 0); filter: blur(0); }
+}
+
+@keyframes musicBarBounce {
+  0% { transform: scaleY(0.28); }
+  100% { transform: scaleY(1); }
 }
 
 @media (max-width: 800px) {
@@ -1090,6 +1118,7 @@
 
   .openButton,
   .galleryImage,
+  .musicBars > span,
   .coverScene::before,
   .coverScene::after,
   .coverCouple,

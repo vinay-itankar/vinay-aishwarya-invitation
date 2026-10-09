@@ -153,7 +153,18 @@ export default function VinayAishwaryaInvitation() {
           aria-pressed={isMusicPlaying}
           aria-describedby={musicError ? "music-error" : undefined}
         >
-          <span aria-hidden="true">{isMusicPlaying ? "Ⅱ" : "♫"}</span>
+          {isMusicPlaying ? (
+            <span className={styles.musicBars} aria-hidden="true">
+              <span className={styles.musicBarOne} />
+              <span className={styles.musicBarTwo} />
+              <span className={styles.musicBarThree} />
+              <span className={styles.musicBarFour} />
+              <span className={styles.musicBarFive} />
+              <span className={styles.musicBarSix} />
+            </span>
+          ) : (
+            <span aria-hidden="true">♫</span>
+          )}
         </button>
       </div>
     </>
