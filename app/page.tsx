@@ -287,8 +287,6 @@ export default function VinayAishwaryaInvitation() {
         <p className={styles.eyebrow}>We can’t wait to celebrate with you</p>
         <h2>Vinay <span>&amp;</span> Aishwarya</h2>
         <p className={styles.hashtag}>#AishVinni</p>
-        <p className={styles.rsvp}>For RSVP, please call</p>
-        <a className={styles.phoneLink} href="tel:+917038426293">70384 26293</a>
         <a className={styles.backToTop} href="#invitation-title">Back to top ↑</a>
       </footer>
     </main>
