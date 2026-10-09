@@ -26,7 +26,7 @@ const events = [
     title: "The Wedding",
     date: "29th November 2026",
     description: "Join us as we begin our forever, surrounded by family and friends.",
-    times: ["Ceremony · 10:21 AM"],
+    times: ["Ceremony · 10:21 AM onwards"],
     venue: "Ramdevbaba Mangalam, Lawn and Mangal Karyalaya, Warud, Amravati, Maharashtra 444906",
     images: [
       { src: "/vinay-aishwarya/wedding.webp", alt: "Vinay and Aishwarya in their wedding attire" },
