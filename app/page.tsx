@@ -285,7 +285,7 @@ export default function VinayAishwaryaInvitation() {
 
       <footer className={styles.footer}>
         <p className={styles.eyebrow}>We can’t wait to celebrate with you</p>
-        <h2>Vinay <span>&amp;</span> Aishwarya</h2>
+        <h2>Vinay<br /><span>&amp;</span><br />Aishwarya</h2>
         <p className={styles.hashtag}>#AishVinni</p>
         <a className={styles.backToTop} href="#invitation-title">Back to top ↑</a>
       </footer>
