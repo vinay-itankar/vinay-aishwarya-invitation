@@ -18,8 +18,8 @@ const events = [
     times: ["Sangeet · 6:30 PM onwards", "Haldi · 10:00 PM onwards"],
     venue: "Mahajan Palace, Godhani Road, Gayatri Nagar, Zingabai Takli, Nagpur, Maharashtra 440030",
     images: [
-      { src: assetUrl("/vinay-aishwarya/sangeet.webp"), alt: "Vinay and Aishwarya celebrating Sangeet" },
-      { src: assetUrl("/vinay-aishwarya/haldi.webp"), alt: "Vinay and Aishwarya celebrating Haldi" },
+      { src: "/vinay-aishwarya/sangeet.webp", alt: "Vinay and Aishwarya celebrating Sangeet" },
+      { src: "/vinay-aishwarya/haldi.webp", alt: "Vinay and Aishwarya celebrating Haldi" },
     ],
   },
   {
@@ -29,7 +29,7 @@ const events = [
     times: ["Ceremony · 10:21 AM"],
     venue: "Ramdevbaba Mangalam, Lawn and Mangal Karyalaya, Warud, Amravati, Maharashtra 444906",
     images: [
-      { src: assetUrl("/vinay-aishwarya/wedding.webp"), alt: "Vinay and Aishwarya in their wedding attire" },
+      { src: "/vinay-aishwarya/wedding.webp", alt: "Vinay and Aishwarya in their wedding attire" },
     ],
   },
   {
@@ -39,7 +39,7 @@ const events = [
     times: ["6:30 PM onwards"],
     venue: "Rathor Garden Lawn, Mankapur Ring Road, near Ayyappa Temple, New Mankapur, Nagpur, Maharashtra 440013",
     images: [
-      { src: assetUrl("/vinay-aishwarya/reception.webp"), alt: "Vinay and Aishwarya at their reception" },
+      { src: "/vinay-aishwarya/reception.webp", alt: "Vinay and Aishwarya at their reception" },
     ],
   },
 ];
