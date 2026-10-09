@@ -96,6 +96,7 @@ export default function VinayAishwaryaInvitation() {
 
   function openInvitation() {
     if (isOpening) return;
+    startMusic();
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
       setOpened(true);
       return;
@@ -104,64 +105,107 @@ export default function VinayAishwaryaInvitation() {
     window.setTimeout(() => setOpened(true), 950);
   }
 
+  function startMusic() {
+    const audio = musicRef.current;
+    if (!audio || !audio.paused) return;
+
+    audio.play().catch((error: unknown) => {
+      if (error instanceof Error && error.name === "AbortError") return;
+      console.error("Unable to play the invitation music.", error);
+      setMusicError(true);
+    });
+  }
+
   function toggleMusic() {
     const audio = musicRef.current;
     if (!audio) return;
 
     if (audio.paused) {
-      audio.play().catch((error: unknown) => {
-        if (error instanceof Error && error.name === "AbortError") return;
-        console.error("Unable to play the invitation music.", error);
-        setMusicError(true);
-      });
+      startMusic();
     } else {
       audio.pause();
     }
   }
 
+  const musicControls = (
+    <>
+      <audio
+        ref={musicRef}
+        src={assetUrl("/vinay-aishwarya/background-song.mp3")}
+        loop
+        preload="none"
+        onPlay={() => {
+          setIsMusicPlaying(true);
+          setMusicError(false);
+        }}
+        onPause={() => setIsMusicPlaying(false)}
+        onError={() => setMusicError(true)}
+      />
+      <div className={styles.musicControl}>
+        <span id="music-error" className={styles.musicStatus} role="status" hidden={!musicError}>
+          Music could not be played. Please try again.
+        </span>
+        <button
+          className={styles.musicToggle}
+          type="button"
+          onClick={toggleMusic}
+          aria-label={isMusicPlaying ? "Pause background music" : "Play background music"}
+          aria-pressed={isMusicPlaying}
+          aria-describedby={musicError ? "music-error" : undefined}
+        >
+          <span aria-hidden="true">{isMusicPlaying ? "Ⅱ" : "♫"}</span>
+        </button>
+      </div>
+    </>
+  );
+
   if (!opened) {
     return (
-      <main className={styles.cover}>
-        <Image
-          className={styles.coverBackground}
-          src={assetUrl("/vinay-aishwarya/cover-bg.webp")}
-          alt=""
-          fill
-          priority
-          sizes="100vw"
-        />
-        <div className={styles.coverShade} />
-        <div className={`${styles.coverContent} ${isOpening ? styles.coverOpening : ""}`}>
-          <p className={styles.eyebrow}>You are warmly invited for</p>
-          <h1 className={styles.coverNames}>Vinay <span>&</span> Aishwarya</h1>
-          <p className={styles.eyebrow}>Wedding on</p>
-          <p className={styles.coverDate}>29th November 2026</p>
-          <div className={styles.coverScene}>
-            <span className={`${styles.coverSparkle} ${styles.coverSparkleOne}`} aria-hidden="true" />
-            <span className={`${styles.coverSparkle} ${styles.coverSparkleTwo}`} aria-hidden="true" />
-            <span className={`${styles.coverSparkle} ${styles.coverSparkleThree}`} aria-hidden="true" />
-            <Image
-              className={styles.coverCouple}
-              src={assetUrl("/vinay-aishwarya/cover-couple.webp")}
-              alt="Illustration of Vinay and Aishwarya in their wedding attire"
-              width={768}
-              height={960}
-              priority
-              sizes="(max-width: 700px) 85vw, 480px"
-            />
+      <>
+        <main className={styles.cover}>
+          <Image
+            className={styles.coverBackground}
+            src={assetUrl("/vinay-aishwarya/cover-bg.webp")}
+            alt=""
+            fill
+            priority
+            sizes="100vw"
+          />
+          <div className={styles.coverShade} />
+          <div className={`${styles.coverContent} ${isOpening ? styles.coverOpening : ""}`}>
+            <p className={styles.eyebrow}>You are warmly invited for</p>
+            <h1 className={styles.coverNames}>Vinay <span>&</span> Aishwarya</h1>
+            <p className={styles.eyebrow}>Wedding on</p>
+            <p className={styles.coverDate}>29th November 2026</p>
+            <div className={styles.coverScene}>
+              <span className={`${styles.coverSparkle} ${styles.coverSparkleOne}`} aria-hidden="true" />
+              <span className={`${styles.coverSparkle} ${styles.coverSparkleTwo}`} aria-hidden="true" />
+              <span className={`${styles.coverSparkle} ${styles.coverSparkleThree}`} aria-hidden="true" />
+              <Image
+                className={styles.coverCouple}
+                src={assetUrl("/vinay-aishwarya/cover-couple.webp")}
+                alt="Illustration of Vinay and Aishwarya in their wedding attire"
+                width={768}
+                height={960}
+                priority
+                sizes="(max-width: 700px) 85vw, 480px"
+              />
+            </div>
+            <button className={styles.openButton} onClick={openInvitation} disabled={isOpening}>
+              <span className={styles.openIcon} aria-hidden="true">✦</span>
+              {isOpening ? "Opening invitation" : "Tap to Open"}
+            </button>
+            <p className={styles.coverHint}>A celebration of love, family & forever</p>
           </div>
-          <button className={styles.openButton} onClick={openInvitation} disabled={isOpening}>
-            <span className={styles.openIcon} aria-hidden="true">✦</span>
-            {isOpening ? "Opening invitation" : "Tap to Open"}
-          </button>
-          <p className={styles.coverHint}>A celebration of love, family & forever</p>
-        </div>
-      </main>
+        </main>
+        {musicControls}
+      </>
     );
   }
 
   return (
-    <main ref={invitationRef} className={styles.invitation}>
+    <>
+      <main ref={invitationRef} className={styles.invitation}>
       <section className={styles.hero} aria-labelledby="invitation-title">
         <Image
           className={styles.heroBackground}
@@ -307,33 +351,8 @@ export default function VinayAishwaryaInvitation() {
         <p className={styles.hashtag}>#AishVinni</p>
         <a className={styles.backToTop} href="#invitation-title">Back to top ↑</a>
       </footer>
-      <audio
-        ref={musicRef}
-        src={assetUrl("/vinay-aishwarya/background-song.mp3")}
-        loop
-        preload="none"
-        onPlay={() => {
-          setIsMusicPlaying(true);
-          setMusicError(false);
-        }}
-        onPause={() => setIsMusicPlaying(false)}
-        onError={() => setMusicError(true)}
-      />
-      <div className={styles.musicControl}>
-        <span id="music-error" className={styles.musicStatus} role="status" hidden={!musicError}>
-          Music could not be played. Please try again.
-        </span>
-        <button
-          className={styles.musicToggle}
-          type="button"
-          onClick={toggleMusic}
-          aria-label={isMusicPlaying ? "Pause background music" : "Play background music"}
-          aria-pressed={isMusicPlaying}
-          aria-describedby={musicError ? "music-error" : undefined}
-        >
-          <span aria-hidden="true">{isMusicPlaying ? "Ⅱ" : "♫"}</span>
-        </button>
-      </div>
-    </main>
+      </main>
+      {musicControls}
+    </>
   );
 }
