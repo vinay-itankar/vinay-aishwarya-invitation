@@ -712,9 +712,9 @@
   padding: 14px 0;
   border-top: 1px solid #ece2d5;
   border-bottom: 1px solid #ece2d5;
-  color: #705354;
+  color: #bc9e65;
   font-family: var(--font-geist-sans), Arial, sans-serif;
-  font-size: 1rem;
+  font-size: 0.875rem;
   font-weight: 500;
   font-feature-settings: "lnum" 1, "tnum" 1;
   font-variant-numeric: lining-nums tabular-nums;
