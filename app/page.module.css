@@ -667,11 +667,17 @@
   gap: 10px;
   margin: 0;
   color: #ad8d48;
-  font-family: var(--font-invitation-serif), Georgia, serif;
+  font-family: var(--font-geist-sans), Arial, sans-serif;
   font-size: 0.82rem;
-  font-weight: 600;
-  letter-spacing: 0.2em;
+  font-weight: 500;
+  font-feature-settings: "lnum" 1, "tnum" 1;
+  font-variant-numeric: lining-nums tabular-nums;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
+}
+
+.eventDate > span:last-child {
+  white-space: nowrap;
 }
 
 .eventInfo h3 {

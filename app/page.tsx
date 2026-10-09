@@ -312,7 +312,7 @@ export default function VinayAishwaryaInvitation() {
                 ))}
               </div>
               <div className={styles.eventInfo}>
-                <p className={styles.eventDate}><span className={styles.detailIcon} aria-hidden="true">▦</span>{event.date}</p>
+                <p className={styles.eventDate}><span className={styles.detailIcon} aria-hidden="true">▦</span><span>{event.date}</span></p>
                 <h3>{event.title}</h3>
                 <p className={styles.eventDescription}>{event.description}</p>
                 <div className={styles.eventTimes}>
