@@ -59,7 +59,10 @@ function directionsUrl(address: string) {
 export default function VinayAishwaryaInvitation() {
   const [opened, setOpened] = useState(false);
   const [isOpening, setIsOpening] = useState(false);
+  const [isMusicPlaying, setIsMusicPlaying] = useState(false);
+  const [musicError, setMusicError] = useState(false);
   const invitationRef = useRef<HTMLElement>(null);
+  const musicRef = useRef<HTMLAudioElement>(null);
 
   useEffect(() => {
     const invitation = invitationRef.current;
@@ -99,6 +102,21 @@ export default function VinayAishwaryaInvitation() {
     }
     setIsOpening(true);
     window.setTimeout(() => setOpened(true), 950);
+  }
+
+  function toggleMusic() {
+    const audio = musicRef.current;
+    if (!audio) return;
+
+    if (audio.paused) {
+      audio.play().catch((error: unknown) => {
+        if (error instanceof Error && error.name === "AbortError") return;
+        console.error("Unable to play the invitation music.", error);
+        setMusicError(true);
+      });
+    } else {
+      audio.pause();
+    }
   }
 
   if (!opened) {
@@ -289,6 +307,33 @@ export default function VinayAishwaryaInvitation() {
         <p className={styles.hashtag}>#AishVinni</p>
         <a className={styles.backToTop} href="#invitation-title">Back to top ↑</a>
       </footer>
+      <audio
+        ref={musicRef}
+        src={assetUrl("/vinay-aishwarya/background-song.mp3")}
+        loop
+        preload="none"
+        onPlay={() => {
+          setIsMusicPlaying(true);
+          setMusicError(false);
+        }}
+        onPause={() => setIsMusicPlaying(false)}
+        onError={() => setMusicError(true)}
+      />
+      <div className={styles.musicControl}>
+        <span id="music-error" className={styles.musicStatus} role="status" hidden={!musicError}>
+          Music could not be played. Please try again.
+        </span>
+        <button
+          className={styles.musicToggle}
+          type="button"
+          onClick={toggleMusic}
+          aria-label={isMusicPlaying ? "Pause background music" : "Play background music"}
+          aria-pressed={isMusicPlaying}
+          aria-describedby={musicError ? "music-error" : undefined}
+        >
+          <span aria-hidden="true">{isMusicPlaying ? "Ⅱ" : "♫"}</span>
+        </button>
+      </div>
     </main>
   );
 }

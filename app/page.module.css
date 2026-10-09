@@ -863,6 +863,59 @@
   text-transform: uppercase;
 }
 
+.musicControl {
+  position: fixed;
+  z-index: 20;
+  right: max(18px, env(safe-area-inset-right));
+  bottom: max(18px, env(safe-area-inset-bottom));
+}
+
+.musicToggle {
+  display: grid;
+  width: 54px;
+  height: 54px;
+  place-items: center;
+  border: 1px solid rgb(179 139 79 / 65%);
+  border-radius: 50%;
+  background: rgb(255 253 248 / 94%);
+  box-shadow: 0 6px 22px rgb(78 43 30 / 18%);
+  color: #805c37;
+  cursor: pointer;
+  font-size: 1.5rem;
+  line-height: 1;
+  transition: transform 180ms ease, background 180ms ease, box-shadow 180ms ease;
+  touch-action: manipulation;
+}
+
+.musicToggle:hover {
+  transform: translateY(-2px);
+  background: #fff;
+  box-shadow: 0 9px 26px rgb(78 43 30 / 24%);
+}
+
+.musicToggle:focus-visible {
+  outline: 3px solid #c49650;
+  outline-offset: 4px;
+}
+
+.musicStatus {
+  position: absolute;
+  right: 0;
+  bottom: calc(100% + 10px);
+  width: max-content;
+  max-width: min(280px, calc(100vw - 36px));
+  padding: 9px 12px;
+  border-radius: 8px;
+  background: #593d40;
+  box-shadow: 0 4px 16px rgb(78 43 30 / 18%);
+  color: #fff8ef;
+  font-size: 0.8rem;
+}
+
+.musicStatus[hidden] {
+  display: none;
+}
+
 @keyframes appear {
   from { opacity: 0; transform: translateY(10px); }
   to { opacity: 1; transform: translateY(0); }
