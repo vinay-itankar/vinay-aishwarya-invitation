@@ -121,6 +121,7 @@
   object-fit: contain;
   filter: drop-shadow(0 16px 22px rgb(78 43 30 / 16%));
   animation: coupleFloat 6s ease-in-out infinite;
+  pointer-events: none;
   will-change: transform, filter;
 }
 
@@ -993,6 +994,22 @@
 
   .familyNames {
     grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) and (max-height: 700px) {
+  .coverContent {
+    padding: 16px 0;
+  }
+
+  .coverScene {
+    width: min(72vw, 280px);
+    height: min(32svh, 220px);
+    margin: 0 0 8px;
+  }
+
+  .coverCouple {
+    width: 100%;
   }
 }
 
