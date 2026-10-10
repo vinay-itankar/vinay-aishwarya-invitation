@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useRef, useState } from "react";
+import { type MouseEvent, useEffect, useRef, useState } from "react";
 import styles from "./page.module.css";
 
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
@@ -166,6 +166,15 @@ export default function VinayAishwaryaInvitation() {
     window.setTimeout(() => setOpened(true), 950);
   }
 
+  function scrollToExplore(event: MouseEvent<HTMLAnchorElement>) {
+    event.preventDefault();
+    const offset = Math.min(Math.max(Math.round(window.innerHeight * 0.18), 120), 220);
+    window.scrollBy({
+      top: offset,
+      behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth",
+    });
+  }
+
   function startMusic() {
     const audio = musicRef.current;
     if (!audio || !audio.paused) return;
@@ -301,7 +310,7 @@ export default function VinayAishwaryaInvitation() {
             <span className={styles.heroTime}>10:21 AM onwards</span>
           </p>
           <p className={styles.hashtag}>#AishVinni</p>
-          <a className={styles.scrollLink} href="#celebrations">Scroll to explore <span aria-hidden="true">↓</span></a>
+          <a className={styles.scrollLink} href="#celebrations" onClick={scrollToExplore}>Scroll to explore <span aria-hidden="true">↓</span></a>
         </div>
       </section>
 
