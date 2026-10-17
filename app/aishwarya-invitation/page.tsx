@@ -17,6 +17,7 @@ const events = [
     description: "A vibrant celebration of henna, laughter and joyful moments before the wedding.",
     times: ["8:30 AM onwards"],
     venue: "G7CR+RFG, near Jain Mandir, Shendurjana Ghat, Maharashtra 444907",
+    directionsLink: "https://maps.app.goo.gl/enaLXKzp3XixcHhK7",
     images: [
       { src: "/aishwarya-invitation/mehendi.webp", alt: "Vinay and Aishwarya celebrating Mehendi" },
     ],
@@ -27,6 +28,7 @@ const events = [
     description: "A beautiful haldi ceremony filled with blessings, colours and family cheer.",
     times: ["8:30 AM onwards"],
     venue: "G7CR+RFG, near Jain Mandir, Shendurjana Ghat, Maharashtra 444907",
+    directionsLink: "https://maps.app.goo.gl/enaLXKzp3XixcHhK7",
     images: [
       { src: "/aishwarya-invitation/haldi.webp", alt: "Vinay and Aishwarya celebrating Haldi" },
     ],
@@ -398,7 +400,7 @@ export default function VinayAishwaryaInvitation() {
                   {event.times.map((time) => <p key={time}><span className={styles.detailIcon} aria-hidden="true">◷</span>{time}</p>)}
                 </div>
                 <p className={styles.eventVenue}><span className={styles.detailIcon} aria-hidden="true">⌖</span>{event.venue}</p>
-                <a className={styles.directionLink} href={directionsUrl(event.venue)} target="_blank" rel="noreferrer">
+                <a className={styles.directionLink} href={event.directionsLink ?? directionsUrl(event.venue)} target="_blank" rel="noreferrer">
                   Get directions <span aria-hidden="true">↗</span>
                 </a>
               </div>
@@ -435,8 +437,8 @@ export default function VinayAishwaryaInvitation() {
         <h2 id="family-title">Our Families</h2>
         <p>Two families joining hands with love and gratitude.</p>
         <div className={styles.familyNames}>
-          <p><strong>Mr. Purushottam Itankar &amp; Mrs. Vandana Itankar</strong><span>Vinay’s Family</span></p>
           <p><strong>Dr. Chandrashekhar Likhitkar &amp; Mrs. Priti Likhitkar</strong><span>Aishwarya’s Family</span></p>
+          <p><strong>Mr. Purushottam Itankar &amp; Mrs. Vandana Itankar</strong><span>Vinay’s Family</span></p>
         </div>
       </section>
 
