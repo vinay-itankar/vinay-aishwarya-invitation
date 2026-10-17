@@ -12,14 +12,33 @@ function assetUrl(path: string) {
 
 const events = [
   {
-    title: "Haldi & Sangeet",
+    title: "Mehendi",
     date: "27th November 2026",
-    description: "A joyful celebration filled with music, dance, colours and blessings.",
-    times: ["Sangeet · 6:30 PM onwards", "Haldi · 10:00 PM onwards"],
-    venue: "Mahajan Palace, Godhani Road, Gayatri Nagar, Zingabai Takli, Nagpur, Maharashtra 440030",
+    description: "A vibrant celebration of henna, laughter and joyful moments before the wedding.",
+    times: ["8:30 AM onwards"],
+    venue: "G7CR+RFG, near Jain Mandir, Shendurjana Ghat, Maharashtra 444907",
+    images: [
+      { src: "/aishwarya-invitation/mehendi.webp", alt: "Vinay and Aishwarya celebrating Mehendi" },
+    ],
+  },
+  {
+    title: "Haldi",
+    date: "28th November 2026",
+    description: "A beautiful haldi ceremony filled with blessings, colours and family cheer.",
+    times: ["8:30 AM onwards"],
+    venue: "G7CR+RFG, near Jain Mandir, Shendurjana Ghat, Maharashtra 444907",
+    images: [
+      { src: "/aishwarya-invitation/haldi.webp", alt: "Vinay and Aishwarya celebrating Haldi" },
+    ],
+  },
+  {
+    title: "Sangeet",
+    date: "28th November 2026",
+    description: "An evening of music, dance and celebration with all our loved ones.",
+    times: ["6:00 PM onwards"],
+    venue: "Ramdevbaba Mangalam, Lawn and Mangal Karyalaya, Warud, Amravati, Maharashtra 444906",
     images: [
       { src: "/aishwarya-invitation/sangeet.webp", alt: "Vinay and Aishwarya celebrating Sangeet" },
-      { src: "/aishwarya-invitation/haldi.webp", alt: "Vinay and Aishwarya celebrating Haldi" },
     ],
   },
   {
@@ -30,16 +49,6 @@ const events = [
     venue: "Ramdevbaba Mangalam, Lawn and Mangal Karyalaya, Warud, Amravati, Maharashtra 444906",
     images: [
       { src: "/aishwarya-invitation/wedding.webp", alt: "Vinay and Aishwarya in their wedding attire" },
-    ],
-  },
-  {
-    title: "Reception",
-    date: "30th November 2026",
-    description: "Celebrate, dine and make memories with the newlyweds.",
-    times: ["6:30 PM onwards"],
-    venue: "Rathor Garden Lawn, Mankapur Ring Road, near Ayyappa Temple, New Mankapur, Nagpur, Maharashtra 440013",
-    images: [
-      { src: "/aishwarya-invitation/reception.webp", alt: "Vinay and Aishwarya at their reception" },
     ],
   },
 ];
@@ -340,19 +349,19 @@ export default function VinayAishwaryaInvitation() {
         </div>
         <div className={styles.coupleGrid}>
           <article className={styles.personCard}>
-            <Image className={styles.personImage} src={assetUrl("/aishwarya-invitation/groom-real.jpeg")} alt="Vinay Itankar, the groom" width={900} height={1600} sizes="(max-width: 700px) 58vw, 280px" />
-            <p className={styles.role}>The Groom</p>
-            <h3>Vinay Itankar</h3>
-            <div className={styles.personDivider} aria-hidden="true"><span>♥</span></div>
-            <p className={styles.parents}>Son of Mr. Purushottam Itankar &amp; Mrs. Vandana Itankar</p>
-          </article>
-          <div className={styles.coupleFlourish} aria-hidden="true"><span>♡</span></div>
-          <article className={styles.personCard}>
             <Image className={styles.personImage} src={assetUrl("/aishwarya-invitation/bride-real.jpeg")} alt="Aishwarya Likhitkar, the bride" width={900} height={1600} sizes="(max-width: 700px) 58vw, 280px" />
             <p className={styles.role}>The Bride</p>
             <h3>Aishwarya Likhitkar</h3>
             <div className={styles.personDivider} aria-hidden="true"><span>♥</span></div>
             <p className={styles.parents}>Daughter of Dr. Chandrashekhar Likhitkar &amp; Mrs. Priti Likhitkar</p>
+          </article>
+          <div className={styles.coupleFlourish} aria-hidden="true"><span>♡</span></div>
+          <article className={styles.personCard}>
+            <Image className={styles.personImage} src={assetUrl("/aishwarya-invitation/groom-real.jpeg")} alt="Vinay Itankar, the groom" width={900} height={1600} sizes="(max-width: 700px) 58vw, 280px" />
+            <p className={styles.role}>The Groom</p>
+            <h3>Vinay Itankar</h3>
+            <div className={styles.personDivider} aria-hidden="true"><span>♥</span></div>
+            <p className={styles.parents}>Son of Mr. Purushottam Itankar &amp; Mrs. Vandana Itankar</p>
           </article>
         </div>
       </section>
